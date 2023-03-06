@@ -1,0 +1,190 @@
+body {
+  font-family: sans-serif;
+}
+
+#app {
+  padding: 18px 10px;
+}
+
+.card {
+  display: inline-block;
+  margin: 5px 20px;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  background: #fff;
+  width: 30vh;
+  height: 50vh;
+  padding: 14px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0px 0px 8px rgb(228, 228, 228);
+  border-radius: 5px;
+}
+
+.card .content {
+  position: relative;
+  background-color: #ccc;
+  width: -webkit-fill-available;
+  height: 100%;
+}
+
+.hidden {
+  transition: opacity .3s;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: -webkit-fill-available;
+  background: rgb(34, 34, 34);
+  height: 100%;
+  z-index: 2;
+}
+
+.card .simbol {
+  color: #fff;
+  font-size: 290%;
+  padding: 5px 8px;
+  font-weight: bold;
+}
+
+.card .simbol-top {
+  position: absolute;
+  rotate: -180deg;
+  text-shadow: -3px -2px 0px #000;
+}
+
+.card .simbol-top::before {
+  content: "";
+  box-shadow: -3px -2px 0px #000;
+  width: 20px;
+  height: 5px;
+  background: #fff;
+  position: absolute;
+  right: 3%;
+  transform: translateX(-50%);
+}
+
+.card .simbol-bottom::before {
+  box-shadow: -3px -2px 0px #000;
+  content: "";
+  width: 20px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  right: 3%;
+  transform: translateX(-50%);
+}
+
+.card .simbol-bottom {
+  text-shadow: -3px -2px 0px #000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.card .middle {
+  position: absolute;
+  top: 4%;
+  left: 0%;
+  width: 100%;
+  border-radius: 134px / 196px;
+  rotate: 36deg;
+  height: 92%;
+  background: #fff;
+}
+
+.card .middle-number {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 700%;
+  text-shadow: 5px 7px 1px #000;
+  font-family: fantasy;
+  color: #ccc;
+}
+
+.form {
+  padding: 28px;
+  text-align: center;
+}
+
+.card .colorful {
+  animation-name: colorful;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+}
+
+.card .colorfulBg {
+  animation-name: colorfulBg;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+}
+
+.card .rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+  top: 28%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes colorful {
+  0% {
+    color: #ED1A22;
+    /* background-color: #ED1A22; */
+  }
+  25% {
+    color: #FDDE03;
+    /* background-color: #FDDE03; */
+  }
+  50% {
+    color: #06A553;
+    /* background-color: #06A553; */
+  }
+  75% {
+    color: #0B93D3;
+    /* background-color: #0B93D3; */
+  }
+}
+
+@keyframes colorfulBg {
+  0% {
+    /* color: #ED1A22; */
+    background-color: #ED1A22;
+  }
+  25% {
+    /* color: #FDDE03; */
+    background-color: #FDDE03;
+  }
+  50% {
+    /* color: #06A553; */
+    background-color: #06A553;
+  }
+  75% {
+    /* color: #0B93D3; */
+    background-color: #0B93D3;
+  }
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

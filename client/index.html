@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Uno</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="main">
+      Digite seu nome de usuário: <br>
+      <form method="post" name="main">
+        <input type="text" name="userName" required>
+        <button type="submit">Jogar</button>
+      </form>
+    </div>
+    
+    <div id="game" style="display: none;">
+      <div class="form" name="game">
+        <form onsubmit="preventSubmit(event)" method="post">
+          <input
+            type="number"
+            name="cardsQuantity"
+            placeholder="quantidade de cartas"
+          />
+          <button type="submit">gerar cartas</button>
+          <button type="button" name="addSeparator">Adicionar separador</button>
+          <br><br>
+          <button type="button" name="revealCards" disabled>mostrar cartas</button>
+          <button type="button" name="hideCards" disabled>esconder cartas</button>
+          <br><br>
+          <button type="button" onclick="reload()">Reiniciar jogo</button>
+          &nbsp;&nbsp;&nbsp;
+          <cards-quantity></cards-quantity>
+        </form>
+      </div>
+      <div id="app"></div>
+
+    </div>
+
+    <script-injector></script-injector>
+    <script src="src/js/socketIo.js"></script>
+    <script src="src/js/scriptInjector.js"></script>
+  </body>
+</html>
