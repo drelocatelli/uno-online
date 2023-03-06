@@ -1,28 +1,27 @@
+import { UserRepository } from "../repository/user";
 import type { IEmit } from "../types/emit";
 import type { IUser } from "../types/user";
 
-export let users : IUser[] = [];
-
 export class Users {
-    remove({username} : IUser) : (IEmit | void) {
-        const find = users.find(u => u.username !== username);
-        if(find) {
-            users = users.filter(u => u.username !== username);
-            return {message: `Usuário removido: ${username}`, isError: false};
-        } else {
-            return {message: 'Usuário não encontrado', isError: true};
+    remove({id} : {id: string}) : (IEmit | void) {
+        const find = UserRepository.findById(id)?.get();
+        if(find != undefined) {
+            UserRepository.findById(find.id)?.remove();
+            return {message: `Usuário removido: ${find.id} - ${find.username}`, isError: false};
         }
     }
 
     add(user : IUser) : (IEmit | void) {
-        const find = users.find(u => u.username == user.username); 
-        if(typeof find == 'undefined') {
-            users.push(user);
+        if(UserRepository.findById(user.id)?.get() != undefined) {
+            return {message: 'Você não pode utilizar duas contas', isError: true};
+        }
+        
+        if(UserRepository.findByUserName(user.username)?.get() == undefined) {
+            UserRepository.add(user)
             return {message: `Usuário entrou: ${user.username}`, isError: false};
         } else {
             return {message: 'Usuário com esse nome já existe', isError: true};
         }
-
     }
 
 }

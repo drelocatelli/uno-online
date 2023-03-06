@@ -3,11 +3,12 @@ class Server {
     
     constructor(server) {
         this.socket =  io(server, { transports: ['websocket', 'polling', 'flashsocket'] });
-        this.onConnectOrDisconnect();
-        this.onPlayerEnter();
+        this.listenOnConnectOrDisconnect();
+        this.listenOnPlayerEnter();
+        this.listenOnPlayerLeave();
     }
 
-    onConnectOrDisconnect() {
+    listenOnConnectOrDisconnect() {
         this.socket.on('connect', () => {
             console.log('Connected to server');
         });
@@ -20,9 +21,15 @@ class Server {
         this.socket.emit('user:login', playerName);
     }
 
-    onPlayerEnter() {
+    listenOnPlayerEnter() {
         this.socket.on('user:logged', (e) => {
             console.log('user logged', e);
+        });
+    }
+
+    listenOnPlayerLeave() {
+        this.socket.on('user:logout', (e) => {
+            console.log(e);
         });
     }
 
