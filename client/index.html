@@ -6,39 +6,43 @@
   </head>
 
   <body>
-    <div class="notification-bar"></div>
-    
-    <div id="main">
-      <h3 class="text-outlined">
-        Digite seu nome de usuário:
-      </h3>
-      <form data-form="main">
-        <input type="text" name="userName" autofocus required>
-        <button type="submit">Jogar UNO</button>
-      </form>
-    </div>
-    
-    <div id="game" style="display: none;">
-      <div class="form">
-        <form onsubmit="preventSubmit(event)" data-form="game">
-          <input
-            type="number"
-            name="cardsQuantity"
-            placeholder="quantidade de cartas"
-          />
-          <button type="submit">gerar cartas</button>
-          <button type="button" name="addSeparator">Adicionar separador</button>
-          <br><br>
-          <button type="button" name="revealCards" disabled>mostrar cartas</button>
-          <button type="button" name="hideCards" disabled>esconder cartas</button>
-          <br><br>
-          <button type="button" onclick="reload()">Reiniciar jogo</button>
-          &nbsp;&nbsp;&nbsp;
-          <cards-quantity></cards-quantity>
+    <div class="all">
+      <div class="notification-bar"></div>
+      
+      <div id="main">
+        <h3 class="text-outlined">
+          Digite seu nome de usuário:
+        </h3>
+        <form data-form="main">
+          <input type="text" name="userName" autofocus required>
+          <button type="submit">Jogar UNO</button>
         </form>
       </div>
-      <div id="app"></div>
+      
+      <div id="game" style="display: none;">
+        <div class="form">
+          <form onsubmit="preventSubmit(event)" data-form="game">
+            <input
+              type="number"
+              name="cardsQuantity"
+              placeholder="quantidade de cartas"
+            />
+            <button type="submit">gerar cartas</button>
+            <button type="button" name="addSeparator">Adicionar separador</button>
+            <br><br>
+            <button type="button" name="revealCards" disabled>mostrar cartas</button>
+            <button type="button" name="hideCards" disabled>esconder cartas</button>
+            <br><br>
+            <button type="button" onclick="reload()">Reiniciar jogo</button>
+            &nbsp;&nbsp;&nbsp;
+            <cards-quantity></cards-quantity>
+          </form>
+        </div>
+        <div id="app"></div>
+      </div>
+      
 
+      <button name="clearUsers">Limpar dados</button>
     </div>
 
     <script-injector></script-injector>

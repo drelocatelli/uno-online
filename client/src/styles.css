@@ -94,7 +94,8 @@ body {
   border-radius: 134px / 196px;
   rotate: 36deg;
   height: 92%;
-  background: #fff;
+  /* background: #fff; */
+  background: transparent;
 }
 
 .card .middle-number {
@@ -114,15 +115,12 @@ body {
 }
 
 .card .colorful {
-  animation-name: colorful;
-  animation-iteration-count: infinite;
-  animation-duration: 4s;
+  animation: colorful 2s linear infinite;
+
 }
 
 .card .colorfulBg {
-  animation-name: colorfulBg;
-  animation-iteration-count: infinite;
-  animation-duration: 4s;
+  animation: colorfulBg 2s linear infinite;
 }
 
 .card .rotating {
@@ -255,6 +253,12 @@ button {
   border-radius: 10px;
 }
 
-button:focus {
+button:active {
   box-shadow: inset -2px -2px 1px #fff, 3px 3px 17px #464646ba;
+}
+
+button[name=clearUsers] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

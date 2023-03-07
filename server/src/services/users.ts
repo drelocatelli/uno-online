@@ -12,6 +12,10 @@ export class Users {
     }
 
     add(user : IUser) : (IEmit | void) {
+        if(/[^\w\s]/.test(user.username)) {
+            return {message: 'Não é permitido caracteres especiais', isError: true};
+        }
+        
         if(UserRepository.findById(user.id)?.get() != undefined) {
             return {message: 'Você não pode utilizar duas contas', isError: true};
         }

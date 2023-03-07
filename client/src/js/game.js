@@ -113,12 +113,13 @@ class Game {
     content.appendChild(middle);
 
     const middleNumber = document.createElement("div"); 
-    if(symbol == "❖" || symbol == "+4" ) {
-      middleNumber.classList.add('colorful');
-    }
+    // if(symbol == "❖" || symbol == "+4" ) {
+    //   middleNumber.classList.add('colorful');
+    // }
     middleNumber.classList.add("middle-number");
     middleNumber.innerText = symbol;
-    middleNumber.style.color = cardColor;
+    // middleNumber.style.color = cardColor;
+    middleNumber.style.color = "#fff";
     content.appendChild(middleNumber);
 
     const simbolBottom = document.createElement("div");

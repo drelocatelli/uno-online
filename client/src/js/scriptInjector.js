@@ -16,5 +16,5 @@ class ScriptInjector {
 }
 
 injectScript('game');
-injectScript('socket-client');
+injectScript('server');
 injectScript('form');

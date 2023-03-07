@@ -23,9 +23,7 @@ class Forms {
   static main(form) {
     let formData = new FormData(form);
     const userName = formData.get('userName');
-    document.querySelector('#main').remove();
     server.playerEnter(userName);
-    this.defineFormGame();
   }
   
   static game(form) {
@@ -59,4 +57,8 @@ const notificationBar = document.querySelector('.notification-bar');
 notificationBar.onclick = (e) => {
   notificationBar.style.pointerEvents = 'none';
   notificationBar.style.opacity = 0;
+};
+
+document.querySelector('button[name=clearUsers]').onclick = (e) => {
+  server.clearData();
 };

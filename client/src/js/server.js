@@ -8,6 +8,11 @@ class Server {
         this.listenOnPlayerLeave();
     }
 
+    clearData() {
+        const password = prompt('Digite a senha:');
+        console.log('clear data')
+    }
+
     listenOnConnectOrDisconnect() {
         this.socket.on('connect', () => {
             console.log('Connected to server');
@@ -22,6 +27,7 @@ class Server {
         this.socket.on('user:login', (e) => {
             console.log('user:login', e);
             if(!e.isError) {
+                document.querySelector('#main').remove();
                 game.openGame();
             } else {
                 this.setNotificationDOM(e.message);
@@ -50,7 +56,7 @@ class Server {
         setTimeout(() => {
             notificationBar.style.pointerEvents = 'none';
             notificationBar.style.opacity = 0;
-        }, 1800);
+        }, 2200);
     }
 
 }
