@@ -42,3 +42,13 @@ separatorBtn.onclick = function () {
 function reload() {
     window.location.reload();
 }
+
+/**
+ * NOTIFICATIONS ------------------------------------
+ */
+
+const notificationBar = document.querySelector('.notification-bar');
+notificationBar.onclick = (e) => {
+  notificationBar.style.pointerEvents = 'none';
+  notificationBar.style.opacity = 0;
+};

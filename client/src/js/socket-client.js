@@ -23,6 +23,7 @@ class Server {
 
     listenOnPlayerEnter() {
         this.socket.on('user:logged', (e) => {
+            this.setNotificationDOM(e.message);
             console.log('user logged', e);
         });
     }
@@ -31,6 +32,12 @@ class Server {
         this.socket.on('user:logout', (e) => {
             console.log(e);
         });
+    }
+
+    setNotificationDOM(text) {
+        notificationBar.style.opacity = 1;
+        notificationBar.style.pointerEvents = 'all';
+        notificationBar.innerHTML = text;
     }
 
 }

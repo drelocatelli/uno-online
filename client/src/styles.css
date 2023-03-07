@@ -188,3 +188,26 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.notification-bar {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background: #f9f9f9ba;
+  padding: 1rem 1rem;
+  border: 1px solid #888;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity .8s;
+}
+
+.notification-bar:empty {
+  display: none;
+  pointer-events: none;
+}
+
+
+.notification-bar:hover {
+  opacity: .6;
+}
