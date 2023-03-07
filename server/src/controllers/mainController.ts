@@ -19,4 +19,14 @@ export class MainController {
     hello(@ConnectedSocket() socket: Socket, @MessageBody() message: any) {
         console.log('Hello,', socket.id, message);
     }
+
+    @OnMessage('data:reset') 
+    reset(@ConnectedSocket() socket: Socket, @MessageBody() message: any) {
+        if(process.env.PASSWORD === message) {
+            console.log('message');
+            socket.emit('data:reset', 'Dados limpos!');
+        } else {
+            socket.emit('data:resetError', 'Acesso negado!');
+        }
+    }
 }

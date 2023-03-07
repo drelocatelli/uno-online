@@ -6,11 +6,24 @@ class Server {
         this.listenOnConnectOrDisconnect();
         this.listenOnPlayerEnter();
         this.listenOnPlayerLeave();
+        this.listenDataReset();
     }
 
     clearData() {
         const password = prompt('Digite a senha:');
-        console.log('clear data')
+        if(password) {
+            console.log('clear data')
+            this.socket.emit('data:reset', password);
+        }
+    }
+
+    listenDataReset() {
+        this.socket.on('data:resetError', (e) => {
+            this.setNotificationDOM(e);
+        });
+        this.socket.on('data:reset', (e) => {
+            this.setNotificationDOM(e);
+        }); 
     }
 
     listenOnConnectOrDisconnect() {
