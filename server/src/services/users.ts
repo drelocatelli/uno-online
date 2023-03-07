@@ -7,7 +7,7 @@ export class Users {
         const find = UserRepository.findById(id)?.get();
         if(find != undefined) {
             UserRepository.findById(find.id)?.remove();
-            return {message: `Usuário removido: ${find.id} - ${find.username}`, isError: false};
+            return {message: `${find.username} desconectou-se`, isError: false};
         }
     }
 
@@ -18,9 +18,9 @@ export class Users {
         
         if(UserRepository.findByUserName(user.username)?.get() == undefined) {
             UserRepository.add(user)
-            return {message: `Usuário entrou: ${user.username}`, isError: false};
+            return {message: `${user.username} entrou`, isError: false};
         } else {
-            return {message: 'Usuário com esse nome já existe', isError: true};
+            return {message: 'Esse usuário já existe', isError: true};
         }
     }
 

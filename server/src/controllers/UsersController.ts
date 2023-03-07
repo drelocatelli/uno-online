@@ -11,7 +11,9 @@ export class UserController {
     
     @OnMessage('user:login')
     enter(@ConnectedSocket() socket: Socket, @MessageBody() message: any) {
-        transmit(socket, 'user:logged', this.users.add({id: socket.id, username: message}));
+        const addedUser = this.users.add({id: socket.id, username: message});
+        socket.broadcast.emit('user:logged', addedUser);
+        socket.emit('user:login', addedUser);
     }
 
     @OnDisconnect()

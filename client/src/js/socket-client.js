@@ -19,18 +19,27 @@ class Server {
 
     playerEnter(playerName) {
         this.socket.emit('user:login', playerName);
+        this.socket.on('user:login', (e) => {
+            console.log('login', e);
+            if(!e.isError) {
+                game.openGame();
+            } else {
+                this.setNotificationDOM(e.message);
+            }
+        });
     }
 
     listenOnPlayerEnter() {
         this.socket.on('user:logged', (e) => {
             this.setNotificationDOM(e.message);
-            console.log('user logged', e);
+            console.log('user:logged', e);
         });
     }
 
     listenOnPlayerLeave() {
         this.socket.on('user:logout', (e) => {
             console.log(e);
+            this.setNotificationDOM(e.message);
         });
     }
 
@@ -38,6 +47,10 @@ class Server {
         notificationBar.style.opacity = 1;
         notificationBar.style.pointerEvents = 'all';
         notificationBar.innerHTML = text;
+        setTimeout(() => {
+            notificationBar.style.pointerEvents = 'none';
+            notificationBar.style.opacity = 0;
+        }, 1800);
     }
 
 }
