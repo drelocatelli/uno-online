@@ -12,15 +12,15 @@
       <h3 class="text-outlined">
         Digite seu nome de usuário:
       </h3>
-      <form method="post" name="main">
+      <form data-form="main">
         <input type="text" name="userName" autofocus required>
         <button type="submit">Jogar UNO</button>
       </form>
     </div>
     
     <div id="game" style="display: none;">
-      <div class="form" name="game">
-        <form onsubmit="preventSubmit(event)" method="post">
+      <div class="form">
+        <form onsubmit="preventSubmit(event)" data-form="game">
           <input
             type="number"
             name="cardsQuantity"

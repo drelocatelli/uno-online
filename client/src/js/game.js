@@ -24,11 +24,11 @@ class Game {
   inGameCards = [];
 
   openGame() {
-    document.querySelector('#main').remove();
     document.querySelector('#game').style.display = 'block';
   }
 
   generateCard(quantity = 1) {
+    console.log('generate card');
     for (let q = 1; q <= quantity; q++) {
       const randomNumber = Math.floor(
         Math.random() * (this.cards.length - 1 - 0 + 1) + 0

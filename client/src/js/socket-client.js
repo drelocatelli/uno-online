@@ -20,7 +20,7 @@ class Server {
     playerEnter(playerName) {
         this.socket.emit('user:login', playerName);
         this.socket.on('user:login', (e) => {
-            console.log('login', e);
+            console.log('user:login', e);
             if(!e.isError) {
                 game.openGame();
             } else {
