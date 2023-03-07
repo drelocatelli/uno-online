@@ -10,9 +10,8 @@ class Server {
     }
 
     clearData() {
-        const password = prompt('Digite a senha:');
+        const password = prompt('Digite a senha do servidor:');
         if(password) {
-            console.log('clear data')
             this.socket.emit('data:reset', password);
         }
     }
@@ -69,7 +68,7 @@ class Server {
         setTimeout(() => {
             notificationBar.style.pointerEvents = 'none';
             notificationBar.style.opacity = 0;
-        }, 2200);
+        }, 5000);
     }
 
 }

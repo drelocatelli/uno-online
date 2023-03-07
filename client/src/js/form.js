@@ -38,8 +38,6 @@ class Forms {
 }
 Forms.define();
 
-
-
 const separatorBtn = document.querySelector('button[name="addSeparator"]');
 separatorBtn.onclick = function () {
   app.prepend(document.createElement("hr"));
