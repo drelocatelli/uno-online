@@ -2,7 +2,7 @@ import fs from 'fs';
 import type { ICard } from '../types/card';
 
 export class CardRepository {
-    static path = 'src/database/card.txt';
+    static path = 'src/database/card.json';
 
     static get() : ICard {
         return JSON.parse(fs.readFileSync(this.path, 'utf-8'));
