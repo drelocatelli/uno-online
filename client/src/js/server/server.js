@@ -4,10 +4,14 @@ class Server {
     constructor(server, port) {
         this.socket =  io(server.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
         (async() => {
-            let {ip: yourIp} = await this.getMyIp();
-            if(yourIp == server) {
-                yourIp = yourIp.concat(`:${port}`);
-                this.socket = io('localhost'.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
+            try {
+                let {ip: yourIp} = await this.getMyIp();
+                if(yourIp == server) {
+                    yourIp = yourIp.concat(`:${port}`);
+                    this.socket = io('localhost'.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
+                }
+            } catch(e) {
+                console.log('unable to set localhost IP', e);
             }
         })();
     }
