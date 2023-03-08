@@ -46,7 +46,7 @@ API_PORT=3000
 PASSWORD=minhasenha
 ```
 
-## ☕ Usando Uno Online
+## ☕ Usando Uno Online e Jogando com amigos!
 
 Para usar Uno Online, siga estas etapas:
 Abra a pasta 'server' e rode o comando:
