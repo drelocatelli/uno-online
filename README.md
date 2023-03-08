@@ -8,9 +8,10 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge) -->
 
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img style="width: 100%; border-radius: 10px; margin: 10px 0;" src="capa.jpg"
+alt="Capa do UNO">
 
-> Jogo Uno Online para se divertir com os amigos.
+> Uno Online para se divertir com os amigos.
 
 ### Ajustes e melhorias
 
@@ -39,6 +40,7 @@ npm install
 ```
 
 Criar .env no Backend
+
 ```
 API_PORT=3000
 PASSWORD=minhasenha
@@ -76,7 +78,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/32282846?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/32282846?v=4" width="100px;" alt="Foto da 4ndr3224 no GitHub"/><br>
         <sub>
           <b>4ndr3224</b>
         </sub>
@@ -84,7 +86,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/66280834?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub" /><br>
+        <img src="https://avatars.githubusercontent.com/u/66280834?v=4" width="100px;" alt="Foto do Guilherme S. no GitHub" /><br>
         <sub>
           <b>Guilherme S. Barros</b>
         </sub>
@@ -92,10 +94,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
 </table>
-
-## 😄 Seja um dos contribuidores<br>
-
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.
 
 ## 📝 Licença
 
