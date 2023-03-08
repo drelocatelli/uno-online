@@ -3,17 +3,14 @@ class Server {
     
     constructor(server) {
         this.socket =  io(server, { transports: ['websocket', 'polling', 'flashsocket'] });
+        this.listen();
     }
+    
+    listen() {
+        return new ServerListen(this.socket)
+    };
 
-    setNotificationDOM(text) {
-        notificationBar.style.opacity = 1;
-        notificationBar.style.pointerEvents = 'all';
-        notificationBar.innerHTML = text;
-        setTimeout(() => {
-            notificationBar.style.pointerEvents = 'none';
-            notificationBar.style.opacity = 0;
-        }, 5000);
-    }
+    
 
 }
 

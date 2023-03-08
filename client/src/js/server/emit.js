@@ -26,7 +26,7 @@ class ServerEmit {
             if(!e.isError) {
                 game.openGame();
             } else {
-                this.setNotificationDOM(e.message);
+                NotificationDOM.setNotification(e.message);
             }
         });
     }

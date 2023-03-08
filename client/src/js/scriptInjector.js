@@ -16,7 +16,8 @@ class ScriptInjector {
 }
 
 injectScript('game');
-injectScript('server/server');
+injectScript('notificationDOM');
 injectScript('server/listen');
+injectScript('server/server');
 injectScript('server/emit');
 injectScript('form');

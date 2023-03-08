@@ -1,16 +1,20 @@
-class ServerListen extends Server {
+class ServerListen {
+    preventAutoExecution = ['constructor'];
     socket;
 
     constructor(socket) {
         this.socket = socket;
+        const allMethods = Object.getOwnPropertyNames(Object.getPrototypeOf(this))
+            .filter(f => !f.includes(this.preventAutoExecution) && typeof this[f] === 'function')
+            .forEach(propName => this[propName]());
     }
-    
+
     listenDataReset() {
         this.socket.on('data:resetError', (e) => {
-            this.setNotificationDOM(e);
+            NotificationDOM.setNotification(e);
         });
         this.socket.on('data:reset', (e) => {
-            this.setNotificationDOM(e);
+            NotificationDOM.setNotification(e);
         }); 
     }
 
@@ -25,7 +29,7 @@ class ServerListen extends Server {
 
     listenOnPlayerEnter() {
         this.socket.on('user:logged', (e) => {
-            this.setNotificationDOM(e.message);
+            NotificationDOM.setNotification(e.message);
             console.log('user:logged', e);
         });
     }
@@ -33,7 +37,7 @@ class ServerListen extends Server {
     listenOnPlayerLeave() {
         this.socket.on('user:logout', (e) => {
             console.log(e);
-            this.setNotificationDOM(e.message);
+            NotificationDOM.setNotification(e.message);
         });
     }
 
