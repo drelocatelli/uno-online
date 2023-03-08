@@ -21,4 +21,5 @@ injectScript('server/server');
 injectScript('server/listen');
 injectScript('server/emit');
 injectScript('form');
+injectScript('effects');
 injectScript('server/boot');

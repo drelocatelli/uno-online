@@ -52,7 +52,8 @@ class ServerListen {
     listenOnCardGlobalShared() {
         this.socket.on('card:global', (e) => {
             console.log('card:global', e);
-            game.syncCard(e);
+            game.syncGlobalCard(e);
+            game.giveMeCards(10);
         });
     }
 

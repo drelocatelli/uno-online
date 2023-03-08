@@ -1,6 +1,8 @@
 const app = document.getElementById("app");
 
 class Game {
+  effects;
+  
   section = 0;
   colors = ["#ED1A22", "#FDDE03", "#06A553", "#0B93D3"];
   cards = [
@@ -23,6 +25,15 @@ class Game {
 
   inGameCards = [];
 
+  isRunning() {
+    const gameEl = document.querySelector('#game');
+    if(gameEl.style.display === 'block') {
+      return true;
+    }
+
+    return false;
+  }
+
   openGame() {
     document.querySelector('#main').remove();
     document.querySelector('#game').style.display = 'block';
@@ -41,7 +52,6 @@ class Game {
     let botSymbol = this.getGlobalCard().querySelector('.simbol-bottom');
     let content = this.getGlobalCard().querySelector('.content');
 
-    console.log('symbol', symbol)
     if(symbol === "❖" || symbol === "+4" ) {
       content.classList.add('colorfulBg');
     } else {
@@ -55,8 +65,8 @@ class Game {
     content.style.backgroundColor = color;
   }
 
-  syncCard(card) {
-      this.setGlobalCard(card.symbol, card.color)
+  syncGlobalCard(card) {
+      this.setGlobalCard(card.symbol, card.color);
   }
 
   generateCardSymbolNumber() {
@@ -86,17 +96,22 @@ class Game {
     return {symbol: generateSymbol, color: generateColor};
   }
 
-  generateCard(quantity = 1, {showing = false, canHide = true, cardSymbol, cardColor}) {
+  giveMeCards(quantity = 7) {
+    const box = document.querySelector('#my-cards .cards');
+    this.generateCard(quantity, {box});
+    Effects.myCardsSlideshow();
+  }
+
+  generateCard(quantity = 1, {box, showing = false, canHide = true, cardSymbol, cardColor}) {
     for (let q = 1; q <= quantity; q++) {
-      const randomNumber = this.generateCardSymbolNumber();
-      cardSymbol = cardSymbol ?? this.cards[randomNumber];
+
       // limit cards
       if (this.limitCards(cardSymbol)) {
         continue;
       } else {
         // create card object in DOM
         const index = this.inGameCards.length;
-        this.addCardInDOM(cardSymbol, index, {showing, canHide, cardColor});
+        this.addCardInDOM(cardSymbol, index, {box, showing, canHide, cardColor});
       }
     }
     this.section += 1;
@@ -114,8 +129,8 @@ class Game {
       revealCards.disabled = true;
     }
 
+    const allCards = document.querySelectorAll('#my-cards .card');
     revealCards.onclick = function() {
-      const allCards = document.querySelectorAll('.card');
       for(let card of allCards) {
         const hidden = card.querySelector('.hidden');
         hidden.style.opacity = 0;
@@ -126,7 +141,6 @@ class Game {
     }
 
     hideCards.onclick = function() {
-      const allCards = document.querySelectorAll('.card');
       for(let card of allCards) {
         const hidden = card.querySelector('.hidden');
         hidden.style.opacity = 1;
@@ -138,9 +152,12 @@ class Game {
 
   }
 
-  addCardInDOM(symbol, index, {showing = false, canHide = true, cardColor}) {
+  addCardInDOM(symbol, index, {box, showing = false, canHide = true, cardColor}) {
+    symbol = symbol ?? this.cards[this.generateCardSymbolNumber()];
+
     cardColor = cardColor ?? this.generateCardColor();
       // symbol == "❖" || symbol == "+4" ? "#000" : this.colors[randomNumber];
+    box = box ?? document.querySelector('#main-cards');
 
     const card = document.createElement("div");
     card.classList.add("card");
@@ -192,7 +209,7 @@ class Game {
     if(canHide) {
       const hiddenEl = document.createElement('div');
       hiddenEl.classList.add('hidden');
-      hiddenEl.style.opacity = (showing) ? 1 : 0;
+      hiddenEl.style.opacity = (!showing) ? 1 : 0;
       content.onclick = (e) => {
         const op = e.target.style.opacity;
         e.target.style.opacity = (op == 0) ? 1 : 0;
@@ -200,7 +217,7 @@ class Game {
       content.prepend(hiddenEl);
     }
     
-    document.querySelector('#main-cards').prepend(card);
+    box.prepend(card);
     this.inGameCards.push(symbol);
   }
 

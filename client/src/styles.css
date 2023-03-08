@@ -270,7 +270,76 @@ button[name="clearUsers"] {
   text-align: center;
 }
 
+#app #main-cards .card {
+  transition: transform .5s;
+}
+
+#app #main-cards .card:hover {
+  transform: scale(1.05);
+}
+
+
 .card[data-card-id="0"] {
   width: 213px;
   height: 335px;
+}
+
+#app #my-cards {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 34%;
+  pointer-events: none;
+  /* overflow: visible; */
+  overflow-x: scroll;
+}
+
+#app #my-cards .cards {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  height: max-content;
+}
+
+#app #my-cards .card {
+  position: relative;
+  pointer-events: all;
+  transition: top ease-out .3s;
+  /* transform: rotate(-10deg); */
+  margin: 5px 0;
+  top: 0;
+  min-width: 219px;
+  width: 219px;
+  height: 300px;
+}
+
+#app #my-cards .card:hover {
+  top: -20px;
+}
+
+#app #my-cards::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+#app #my-cards::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+}
+
+#app #my-cards::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+h1[name="youSubtle"] {
+  pointer-events: all;
+  color: #fff065;
+  margin: 0;
+  text-align: center;
+  text-shadow: 2px 3px 0px #000, 1px 1px 5px #000;
+  font-family: monospace;
+  margin: 5px 0;
 }
