@@ -16,6 +16,30 @@ class Effects {
             arrowsEl.appendChild(leftArrow);
             arrowsEl.appendChild(rightArrow);
             cardsEl.appendChild(arrowsEl);
+
+            // scroll on border
+            cardsEl.addEventListener("mousemove", function (event) {
+                const containerRect = cardsEl.getBoundingClientRect();
+                const x = event.clientX - containerRect.left;
+                const y = event.clientY - containerRect.top;
+              
+                if (x < 20) {
+                  cardsEl.scrollLeft -= 30;
+                } else if (x > containerRect.width - 20) {
+                  cardsEl.scrollLeft += 30;
+                }
+
+                window.requestAnimationFrame(scroll);
+            });
+
+            leftArrow.onclick = (e) => {
+                cardsEl.scrollLeft -= 100;
+            }
+
+            rightArrow.onclick = (e) => {
+                cardsEl.scrollLeft += 100;
+            }
+
         } else {
             arrowsEl.remove();
         }

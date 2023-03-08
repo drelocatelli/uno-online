@@ -295,12 +295,20 @@ button[name="clearUsers"] {
 }
 
 #app #my-cards .cards {
-  overflow: visible;
-  overflow-x: clip;
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  /* overflow: visible; */
+  /* overflow-x: clip; */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
   display: flex;
   flex-direction: row;
   width: auto;
   height: max-content;
+}
+
+#app #my-cards::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 #app #my-cards .card {
@@ -308,7 +316,7 @@ button[name="clearUsers"] {
   pointer-events: all;
   transition: top ease-out .3s;
   /* transform: rotate(-10deg); */
-  margin: 5px 0;
+  margin: 5px 3px;
   top: 0;
   min-width: 219px;
   width: 219px;
@@ -319,22 +327,8 @@ button[name="clearUsers"] {
   top: -20px;
 }
 
-#app #my-cards::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-#app #my-cards::-webkit-scrollbar-thumb {
-  background: rgba(90, 90, 90);
-}
-
-#app #my-cards::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-
-
 h1[name="youSubtle"] {
+  text-transform: uppercase;
   pointer-events: all;
   color: #fff065;
   margin: 0;
