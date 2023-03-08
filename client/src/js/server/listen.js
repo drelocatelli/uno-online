@@ -4,9 +4,17 @@ class ServerListen {
 
     constructor(socket) {
         this.socket = socket;
-        const allMethods = Object.getOwnPropertyNames(Object.getPrototypeOf(this))
+
+        // auto execute all methods listed
+        Object.getOwnPropertyNames(Object.getPrototypeOf(this))
             .filter(f => !f.includes(this.preventAutoExecution) && typeof this[f] === 'function')
             .forEach(propName => this[propName]());
+    }
+
+    listenGlobalNotification() {
+        this.socket.on('notification', (e) => {
+            NotificationDOM.setNotification(e);
+        });
     }
 
     listenDataReset() {
@@ -38,6 +46,14 @@ class ServerListen {
         this.socket.on('user:logout', (e) => {
             console.log(e);
             NotificationDOM.setNotification(e.message);
+        });
+    }
+
+    listenOnCardGlobalShared() {
+        console.log('hello')
+        this.socket.on('card:global', (e) => {
+            game.syncCard(e);
+            console.log('card:global', e);
         });
     }
 
