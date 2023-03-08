@@ -49,10 +49,16 @@ PASSWORD=minhasenha
 ## ☕ Usando Uno Online
 
 Para usar Uno Online, siga estas etapas:
+Abra a pasta 'server' e rode o comando:
 
 ```
 npm run start
 ```
+Abra a pasta 'client' e rode o comando:
+```
+npx serve
+```
+Irá informar um link para que você possa acessar.
 
 Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
 
