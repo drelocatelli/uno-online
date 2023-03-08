@@ -7,13 +7,25 @@ class Server {
         this.listenOnPlayerEnter();
         this.listenOnPlayerLeave();
         this.listenDataReset();
+        this.listenGlobalCard();
     }
 
     clearData() {
         const password = prompt('Digite a senha do servidor:');
         if(password) {
             this.socket.emit('data:reset', password);
+            window.location.reload();
         }
+    }
+
+    listenGlobalCard() {
+        this.socket.on('card:global', (e) => {
+            game.syncCard(e);
+        });
+    }
+
+    shareGlobalCard(card) {
+        this.socket.emit('card:global', card);
     }
 
     listenDataReset() {
@@ -39,7 +51,6 @@ class Server {
         this.socket.on('user:login', (e) => {
             console.log('user:login', e);
             if(!e.isError) {
-                document.querySelector('#main').remove();
                 game.openGame();
             } else {
                 this.setNotificationDOM(e.message);

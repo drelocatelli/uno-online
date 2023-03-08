@@ -24,23 +24,71 @@ class Game {
   inGameCards = [];
 
   openGame() {
+    document.querySelector('#main').remove();
     document.querySelector('#game').style.display = 'block';
+    const card = this.generateGlobalCard();
+    server.shareGlobalCard(card);
   }
 
-  generateCard(quantity = 1) {
-    console.log('generate card');
+  getGlobalCard() {
+    const globalCard = app.querySelector('.card[data-card-id="0"]');
+    return globalCard;
+  }
+
+  setGlobalCard(symbol, color) {
+    let middleSymbol = this.getGlobalCard().querySelector('.middle-number');
+    let topSymbol = this.getGlobalCard().querySelector('.simbol-top');
+    let botSymbol = this.getGlobalCard().querySelector('.simbol-bottom');
+    let content = this.getGlobalCard().querySelector('.content');
+
+    middleSymbol.innerHTML = symbol;
+    topSymbol.innerHTML = symbol;
+    botSymbol.innerHTML = symbol;
+    content.style.backgroundColor = color;
+  }
+
+  syncCard(card) {
+      this.setGlobalCard(card.symbol, card.color)
+  }
+
+  generateCardSymbolNumber() {
+    return Math.floor(
+      Math.random() * (this.cards.length - 1 - 0 + 1) + 0
+    );
+  }
+
+  generateCardSymbol() {
+    return this.cards[this.generateCardSymbolNumber()];
+  }
+
+  generateCardColorNumber() {
+    return Math.floor(
+      Math.random() * (this.colors.length - 1 - 0 + 1) + 0
+    );
+  }
+
+  generateCardColor() {
+    return this.colors[this.generateCardColorNumber()];
+  }
+  
+  generateGlobalCard() {
+    const generateSymbol = this.generateCardSymbol();
+    const generateColor = this.generateCardColor();
+    this.generateCard(1, {showing: true, canHide: false, cardSymbol:  generateSymbol, cardColor: generateColor});
+    return {symbol: generateSymbol, color: generateColor};
+  }
+
+  generateCard(quantity = 1, {showing = false, canHide = true, cardSymbol, cardColor}) {
     for (let q = 1; q <= quantity; q++) {
-      const randomNumber = Math.floor(
-        Math.random() * (this.cards.length - 1 - 0 + 1) + 0
-      );
-      const cardSymbol = this.cards[randomNumber];
+      const randomNumber = this.generateCardSymbolNumber();
+      cardSymbol = cardSymbol ?? this.cards[randomNumber];
       // limit cards
       if (this.limitCards(cardSymbol)) {
         continue;
       } else {
         // create card object in DOM
         const index = this.inGameCards.length;
-        this.addCardInDOM(cardSymbol, index);
+        this.addCardInDOM(cardSymbol, index, {showing, canHide, cardColor});
       }
     }
     this.section += 1;
@@ -82,11 +130,8 @@ class Game {
 
   }
 
-  addCardInDOM(symbol, index) {
-    const randomNumber = Math.floor(
-      Math.random() * (this.colors.length - 1 - 0 + 1) + 0
-    );
-    const cardColor = this.colors[randomNumber];
+  addCardInDOM(symbol, index, {showing = false, canHide = true, cardColor}) {
+    cardColor = cardColor ?? this.generateCardColor();
       // symbol == "❖" || symbol == "+4" ? "#000" : this.colors[randomNumber];
 
     const card = document.createElement("div");
@@ -135,22 +180,23 @@ class Game {
     card.setAttribute('title', `Carta N°${index + 1}`);
 
     // add hidden card
-    const hiddenEl = document.createElement('div');
-    hiddenEl.classList.add('hidden');
-    content.onclick = (e) => {
-      const op = e.target.style.opacity;
-      e.target.style.opacity = (op == 0) ? 1 : 0;
-    };
-    content.prepend(hiddenEl);
+    if(canHide) {
+      const hiddenEl = document.createElement('div');
+      hiddenEl.classList.add('hidden');
+      hiddenEl.style.opacity = (showing) ? 1 : 0;
+      content.onclick = (e) => {
+        const op = e.target.style.opacity;
+        e.target.style.opacity = (op == 0) ? 1 : 0;
+      };
+      content.prepend(hiddenEl);
+    }
     
-    app.prepend(card);
+    document.querySelector('#main-cards').prepend(card);
     this.inGameCards.push(symbol);
   }
 
   limitCards(lastSymbol) {
     const findQuantity = this.cardsByQuatity(lastSymbol);
-    console.log("in game cards:", this.inGameCards);
-    console.log("last quantity:", findQuantity);
 
     if (lastSymbol == "⥄" && findQuantity == 8) {
       return true;
@@ -181,7 +227,6 @@ class Game {
   }
 
   cardsByQuatity(symbol) {
-    console.log("symbol", symbol);
     const find = this.inGameCards.filter((card) => card == symbol);
     return find.length;
   }

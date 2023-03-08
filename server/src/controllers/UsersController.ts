@@ -1,6 +1,7 @@
 import { ConnectedSocket, MessageBody, OnDisconnect, OnMessage, SocketController } from "socket-controllers";
 import type { Socket } from "socket.io";
 import { Service } from "typedi";
+import { UserRepository } from "../repository/user";
 import transmit from "../services/transmit";
 import { Users } from "../services/users";
 
@@ -16,8 +17,14 @@ export class UserController {
         socket.emit('user:login', addedUser);
     }
 
+    @OnMessage('user:count')
+    count(@ConnectedSocket() socket: Socket) {
+        transmit(socket, 'user:count', UserRepository.count());
+    }
+
     @OnDisconnect()
     disconnect(@ConnectedSocket() socket: Socket) {
         transmit(socket, 'user:logout', this.users.remove({id: socket.id}));
     }
+
 }

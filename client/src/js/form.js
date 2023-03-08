@@ -12,9 +12,6 @@ class Forms {
           case 'main':
             this.main(e.target);
           break;
-          case 'game':
-            this.game(e.target);
-          break;
         }
       });
     }
@@ -25,26 +22,14 @@ class Forms {
     const userName = formData.get('userName');
     server.playerEnter(userName);
   }
-  
-  static game(form) {
-    let formData = new FormData(form);
-    const quantity = formData.get("cardsQuantity");
-    if(quantity == '') {
-      game.generateCard(1);
-    } else {
-      game.generateCard(quantity);
-    }
-  }
 }
 Forms.define();
 
-const separatorBtn = document.querySelector('button[name="addSeparator"]');
-separatorBtn.onclick = function () {
-  app.prepend(document.createElement("hr"));
-};
-
 function reload() {
+  const confirmReload = confirm('Deseja realmente sair?');
+  if(confirmReload) {
     window.location.reload();
+  }
 }
 
 /**

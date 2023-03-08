@@ -95,6 +95,7 @@ body {
   rotate: 36deg;
   height: 92%;
   /* background: #fff; */
+  border: 5px solid #fff;
   background: transparent;
 }
 
@@ -258,9 +259,18 @@ button:active {
   box-shadow: inset -2px -2px 1px #fff, 3px 3px 17px #464646ba;
 }
 
-button[name=clearUsers] {
+button[name="clearUsers"] {
   z-index: 2;
   position: fixed;
   bottom: 0;
   left: 0;
+}
+
+#app #main-cards {
+  text-align: center;
+}
+
+.card[data-card-id="0"] {
+  width: 213px;
+  height: 335px;
 }
