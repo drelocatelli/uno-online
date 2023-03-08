@@ -292,8 +292,8 @@ button[name="clearUsers"] {
   width: 80%;
   height: 34%;
   pointer-events: none;
-  /* overflow: visible; */
-  overflow-x: scroll;
+  overflow: visible;
+  overflow-x: clip;
 }
 
 #app #my-cards .cards {

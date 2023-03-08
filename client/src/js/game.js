@@ -92,6 +92,9 @@ class Game {
   generateGlobalCard() {
     const generateSymbol = this.generateCardSymbol();
     const generateColor = this.generateCardColor();
+    if(generateSymbol == "❖" || generateSymbol == "+4") {
+      return this.generateGlobalCard();
+    }
     this.generateCard(1, {showing: true, canHide: false, cardSymbol:  generateSymbol, cardColor: generateColor});
     return {symbol: generateSymbol, color: generateColor};
   }

@@ -1,11 +1,21 @@
+const myCardsEl = document.querySelector('#my-cards');
+
 class Effects {
+    static myCardsArrow(showing) {
+        if(showing) {
+
+        } else {
+            
+        }
+    }
+    
     static myCardsSlideshow() {
-        const myCardsEl = document.querySelector('#my-cards');
         console.log(myCardsEl.clientWidth, myCardsEl.scrollWidth)
         if(myCardsEl.clientWidth < myCardsEl.scrollWidth) {
             console.log('scroll overflowed');
+            this.myCardsArrow(true);
         } else {
-            console.log('scroll not overflowed');
+            this.myCardsArrow(false);
 
         }
     }
