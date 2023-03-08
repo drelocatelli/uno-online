@@ -1,6 +1,6 @@
 class ServerListen {
-    preventAutoExecution = ['constructor'];
     socket;
+    preventAutoExecution = ['constructor'];
 
     constructor(socket) {
         this.socket = socket;
