@@ -46,6 +46,7 @@ class Game {
       content.classList.add('colorfulBg');
     } else {
       content.classList.remove('colorfulBg');
+      middleSymbol.style.textShadow = '5px 7px 1px #000';
     }
 
     middleSymbol.innerHTML = symbol;
