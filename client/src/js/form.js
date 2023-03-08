@@ -20,7 +20,7 @@ class Forms {
   static main(form) {
     let formData = new FormData(form);
     const userName = formData.get('userName');
-    server.playerEnter(userName);
+    new ServerEmit(server.socket).playerEnter(userName);
   }
 }
 Forms.define();
@@ -43,5 +43,5 @@ notificationBar.onclick = (e) => {
 };
 
 document.querySelector('button[name=clearUsers]').onclick = (e) => {
-  server.clearData();
+  new ServerEmit(server.socket).clearData();
 };
