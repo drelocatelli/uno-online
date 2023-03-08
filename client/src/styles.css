@@ -13,7 +13,6 @@ body {
   margin: 5px 20px;
   overflow: hidden;
   font-family: "Courier New", Courier, monospace;
-  cursor: pointer;
   user-select: none;
   position: relative;
   background: #fff;
@@ -30,6 +29,7 @@ body {
   background-color: #ccc;
   width: -webkit-fill-available;
   height: 100%;
+  cursor: pointer;
 }
 
 .hidden {
@@ -292,14 +292,14 @@ button[name="clearUsers"] {
   width: 80%;
   height: 34%;
   pointer-events: none;
-  overflow: visible;
-  overflow-x: clip;
 }
 
 #app #my-cards .cards {
+  overflow: visible;
+  overflow-x: clip;
   display: flex;
   flex-direction: row;
-  width: max-content;
+  width: auto;
   height: max-content;
 }
 
@@ -342,4 +342,20 @@ h1[name="youSubtle"] {
   text-shadow: 2px 3px 0px #000, 1px 1px 5px #000;
   font-family: monospace;
   margin: 5px 0;
+}
+
+.myCards-arrows {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 3;
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+}
+
+.myCards-arrows img {
+  cursor: pointer;
+  width: 70px;
+  pointer-events: all;
 }
