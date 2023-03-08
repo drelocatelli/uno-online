@@ -19,4 +19,4 @@ class Server {
     
 }
 
-const server = new Server('SERVER IP', '3000');
+const server = new Server('SERVER_IP', '3000');
