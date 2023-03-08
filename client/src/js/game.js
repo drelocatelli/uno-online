@@ -120,7 +120,9 @@ class Game {
     this.section += 1;
     this.showHideCards();
     const cardsQuantityEl = document.querySelector('cards-quantity');
-    cardsQuantityEl.innerText = `cartas geradas: ${this.inGameCards.length}`;
+    if(cardsQuantityEl != null) {
+      cardsQuantityEl.innerText = `Você possui ${this.inGameCards.length - 1} cartas`;
+    }
   }
 
   showHideCards() {

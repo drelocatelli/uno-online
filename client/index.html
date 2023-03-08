@@ -20,19 +20,18 @@
       </div>
       
       <div id="game" style="display: none;">
-        <div class="form">
-            <button type="button" name="revealCards" disabled>mostrar cartas</button>
-            <button type="button" name="hideCards" disabled>esconder cartas</button>
-            <br><br>
-            <button type="button" onclick="reload()" style="position: fixed; top: 0; right: 0;">x</button>
-            &nbsp;&nbsp;&nbsp;
-            <cards-quantity></cards-quantity>
-        </div>
+        <button type="button" onclick="reload()" style="position: fixed; top: 0; right: 0;">x</button>
         <div id="app">
           <div id="main-cards">
           </div>
           <div id="my-cards">
-            <h1 name="youSubtle">Você possui x cartas:</h1>
+            <div class="form" data-form="game">
+              <button type="button" name="revealCards" disabled>mostrar cartas</button>
+              <button type="button" name="hideCards" disabled>esconder cartas</button>
+          </div>
+            <h1 name="youSubtle">
+              <cards-quantity></cards-quantity>
+            </h1>
             <div class="cards"></div>
           </div>
         </div>

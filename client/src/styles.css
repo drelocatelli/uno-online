@@ -328,7 +328,6 @@ button[name="clearUsers"] {
 }
 
 h1[name="youSubtle"] {
-  text-transform: uppercase;
   pointer-events: all;
   color: #fff065;
   margin: 0;
@@ -352,4 +351,14 @@ h1[name="youSubtle"] {
   cursor: pointer;
   width: 70px;
   pointer-events: all;
+}
+
+.form[data-form="game"] {
+  pointer-events: all;
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  transform: translateY(-50%);
+  right: 15px;
+  padding: 0;
 }

@@ -53,7 +53,7 @@ class ServerListen {
         this.socket.on('card:global', (e) => {
             console.log('card:global', e);
             game.syncGlobalCard(e);
-            game.giveMeCards(10);
+            game.giveMeCards(7);
         });
     }
 
