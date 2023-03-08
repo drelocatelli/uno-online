@@ -41,8 +41,11 @@ class Game {
     let botSymbol = this.getGlobalCard().querySelector('.simbol-bottom');
     let content = this.getGlobalCard().querySelector('.content');
 
-    if(symbol == "❖" || symbol == "+4" ) {
+    console.log('symbol', symbol)
+    if(symbol === "❖" || symbol === "+4" ) {
       content.classList.add('colorfulBg');
+    } else {
+      content.classList.remove('colorfulBg');
     }
 
     middleSymbol.innerHTML = symbol;
