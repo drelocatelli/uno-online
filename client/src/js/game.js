@@ -27,7 +27,7 @@ class Game {
     document.querySelector('#main').remove();
     document.querySelector('#game').style.display = 'block';
     const card = this.generateGlobalCard();
-    server.shareGlobalCard(card);
+    new ServerEmit(server.socket).shareGlobalCard(card);
   }
 
   getGlobalCard() {
