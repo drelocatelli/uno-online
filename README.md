@@ -46,12 +46,27 @@ API_PORT=3000
 PASSWORD=minhasenha
 ```
 
-## ☕ Usando Uno Online
+## ☕ Usando Uno Online e Jogando com amigos!
 
 Para usar Uno Online, siga estas etapas:
+Abra a pasta 'server' e rode o comando:
 
 ```
 npm run start
+```
+Abra a pasta 'client' e rode o comando:
+```
+npx serve -l 2005 // você pode substituir o 2005 para qualquer número de porta
+```
+Irá informar um link para que você possa acessar.
+
+Para convidar seus amigos para jogar, você precisará abrir a DMZ (conhecido também como abrir portas) do seu roteador.
+
+Após isso, acesse esse site e copie o endereço de IP Público: https://meuip.com.br/
+
+Copie o IP e adicione a porta nele, por exemplo:
+```
+127.0.0.1:PORTA
 ```
 
 Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
