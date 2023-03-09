@@ -15,4 +15,9 @@ export class CardsController {
         return CardRepository.get();
     }
 
+    @OnMessage('card:user-count')
+    shareUserCardCount(@ConnectedSocket() socket: Socket, @MessageBody() quantity: number, callback: any) {
+        console.log(quantity)
+    }
+
 }

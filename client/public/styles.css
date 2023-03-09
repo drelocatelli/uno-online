@@ -344,18 +344,21 @@ h1[name="youSubtle"] {
 }
 
 .myCards-arrows {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  z-index: 3;
-  display: flex;
-  width: -webkit-fill-available;
-  justify-content: space-between;
+    position: absolute;
+    left: 0;
+    /* top: 50%; */
+    z-index: 3;
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: space-between;
+    height: -webkit-fill-available;
+    align-items: center;
 }
 
 .myCards-arrows img {
   cursor: pointer;
   width: 70px;
+  height: 70px;
   pointer-events: all;
 }
 
