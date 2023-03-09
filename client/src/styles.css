@@ -295,6 +295,7 @@ button[name="clearUsers"] {
 }
 
 #app #my-cards .cards {
+  padding-top: 20px;
   overflow-x: scroll;
   /* overflow: visible; */
   /* overflow-x: clip; */
