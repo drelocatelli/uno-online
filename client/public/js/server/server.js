@@ -2,6 +2,10 @@ class Server {
     socket;
 
     constructor(server, port) {
+       this.changeSocket(server, port);
+    }
+
+    changeSocket(server, port = 80) {
         this.socket =  io(server.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
         (async() => {
             try {
@@ -23,4 +27,4 @@ class Server {
     
 }
 
-const server = new Server('localhost', '3000');
+let server = new Server('localhost', '3000');

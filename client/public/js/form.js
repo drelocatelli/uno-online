@@ -32,6 +32,11 @@ function reload() {
   }
 }
 
+function changeServer() {
+  const serverIp = prompt("Digite o IP/URL do servidor");
+  server.changeSocket(serverIp);
+}
+
 /**
  * NOTIFICATIONS ------------------------------------
  */

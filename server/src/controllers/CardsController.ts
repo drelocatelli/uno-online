@@ -17,7 +17,9 @@ export class CardsController {
 
     @OnMessage('card:user-count')
     shareUserCardCount(@ConnectedSocket() socket: Socket, @MessageBody() quantity: number, callback: any) {
-        console.log(quantity)
+        if(quantity != 0) {
+            console.log(quantity)
+        }
     }
 
 }

@@ -122,6 +122,7 @@ class Game {
     const cardsQuantityEl = document.querySelector('cards-quantity');
     if(cardsQuantityEl != null) {
       cardsQuantityEl.innerText = `Você possui ${this.inGameCards.length - 1} cartas`;
+      new ServerEmit(server.socket).shareCardsCount(this.inGameCards.length - 1);
     }
   }
 

@@ -7,7 +7,7 @@ export class UserRepository {
     static add(user: IUser) : void {
         const fcontents = fs.readFileSync(this.path, 'utf-8');
         let data : IUser[] = JSON.parse(fcontents);
-        data.push(user);
+        data.push({...user, cards: 7});
         fs.writeFileSync(this.path, JSON.stringify(data), 'utf-8');
     }
 
