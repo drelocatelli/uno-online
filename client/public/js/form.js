@@ -28,7 +28,8 @@ class Forms {
     document.querySelector('button[name="changeServer"]').onclick = function() {
       const serverIp = prompt("Digite o IP/URL do servidor");
       if(serverIp.length > 0) {
-        server = new Server(serverIp);
+        localStorage.setItem('uno-server', serverIp);
+        window.location.reload();
       }
     }
     

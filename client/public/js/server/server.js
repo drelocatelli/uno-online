@@ -6,11 +6,16 @@ class Server {
     }
 
     changeSocket(server, port = 80) {
+        if(localStorage.getItem('uno-server') != null) {
+            server = localStorage.getItem('uno-server');
+        } else {
+            localStorage.setItem('uno-server', server.concat(`:${port}`));
+        }
         this.socket =  io(server.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
         (async() => {
             try {
                 let {ip: yourIp} = await this.getMyIp();
-                if(yourIp == server) {
+                if(yourIp === server) {
                     yourIp = yourIp.concat(`:${port}`);
                     this.socket = io('localhost'.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
                 }
