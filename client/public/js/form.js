@@ -28,7 +28,7 @@ class Forms {
     document.querySelector('button[name="changeServer"]').onclick = function() {
       const serverIp = prompt("Digite o IP/URL do servidor");
       if(serverIp.length > 0) {
-        server.changeSocket(serverIp);
+        server = new Server(serverIp);
       }
     }
     
