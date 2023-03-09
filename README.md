@@ -58,11 +58,6 @@ Abra a pasta 'server' e 'client' e rode o comando:
 ```
 npm run start
 ```
-Abra a pasta 'client' e rode o comando:
-```
-npx serve -l 2005 // você pode substituir o 2005 para qualquer número de porta
-```
-Irá informar um link para que você possa acessar.
 
 Para convidar seus amigos para jogar, você precisará abrir a DMZ (conhecido também como abrir portas) do seu roteador.
 
