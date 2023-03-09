@@ -26,7 +26,7 @@ class Forms {
 
   static changeServer() {
     document.querySelector('button[name="changeServer"]').onclick = function() {
-      const serverIp = prompt("Digite o IP/URL do servidor");
+      const serverIp = prompt("Digite o IP/URL do servidor", 'ws://');
       if(serverIp.length > 0) {
         localStorage.setItem('uno-server', serverIp);
         window.location.reload();
