@@ -7,11 +7,11 @@ class Effects {
         if(showing) {
             const leftArrow = document.createElement('img');
             leftArrow.title = 'Arrastar pra esquerda';
-            leftArrow.src = 'assets/img/arrow_left.png';
+            leftArrow.src = 'assets/img/arrow_left02.png';
 
             const rightArrow = document.createElement('img');
             rightArrow.title = 'Arrastar pra direita';
-            rightArrow.src = 'assets/img/arrow_right.png';
+            rightArrow.src = 'assets/img/arrow_right02.png';
 
             arrowsEl.appendChild(leftArrow);
             arrowsEl.appendChild(rightArrow);
@@ -31,7 +31,6 @@ class Effects {
 
                 // window.requestAnimationFrame(scroll);
             });
-
             
             leftArrow.onclick = (e) => {
                 cardsEl.scrollLeft -= 100;

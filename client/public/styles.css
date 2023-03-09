@@ -345,6 +345,7 @@ h1[name="youSubtle"] {
 
 .myCards-arrows {
     position: absolute;
+    overflow: visible;
     left: 0;
     /* top: 50%; */
     z-index: 3;
@@ -355,7 +356,16 @@ h1[name="youSubtle"] {
     align-items: center;
 }
 
+.myCards-arrows img:first-child {
+  right: 25px;
+}
+
+.myCards-arrows img:last-child {
+  left: 25px;
+}
+
 .myCards-arrows img {
+  position: relative;
   cursor: pointer;
   width: 70px;
   height: 70px;
