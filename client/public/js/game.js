@@ -23,6 +23,7 @@ class Game {
     "⍉"
   ];
 
+  playerCards = 0;
   inGameCards = [];
 
   isRunning() {
@@ -99,8 +100,9 @@ class Game {
     return {symbol: generateSymbol, color: generateColor};
   }
 
-  giveMeCards(quantity = 7) {
+  giveMeCards(quantity = 7, signal = 'positive') {
     const box = document.querySelector('#my-cards .cards');
+    this.playerCards = (signal == 'positive') ?  + quantity : - quantity;
     this.generateCard(quantity, {box});
     Effects.myCardsSlideshow();
   }
@@ -121,9 +123,24 @@ class Game {
     this.showHideCards();
     const cardsQuantityEl = document.querySelector('cards-quantity');
     if(cardsQuantityEl != null) {
-      cardsQuantityEl.innerText = `Você possui ${this.inGameCards.length - 1} cartas`;
-      new ServerEmit(server.socket).shareCardsCount(this.inGameCards.length - 1);
+      cardsQuantityEl.innerText = `Você possui ${this.playerCards} cartas`;
+      new ServerEmit(server.socket).shareCardsCount(this.playerCards);
     }
+  }
+
+  generateFriendCard(quantity = 1, {box, showing = false, canHide = true, cardSymbol, cardColor}) {
+    for (let q = 1; q <= quantity; q++) {
+
+      // limit cards
+      if (this.limitCards(cardSymbol)) {
+        continue;
+      } else {
+        // create card object in DOM
+        const index = this.inGameCards.length;
+        this.addCardInDOM(cardSymbol, index, {box, showing, canHide, cardColor});
+      }
+    }
+    this.section += 1;
   }
 
   showHideCards() {
@@ -163,7 +180,7 @@ class Game {
 
     cardColor = cardColor ?? this.generateCardColor();
       // symbol == "❖" || symbol == "+4" ? "#000" : this.colors[randomNumber];
-    box = box ?? document.querySelector('#main-cards');
+    box = box ?? document.querySelector('#main-cards #mesa');
 
     const card = document.createElement("div");
     card.classList.add("card");

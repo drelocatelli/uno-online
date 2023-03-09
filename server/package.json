@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "tsnd -r dotenv/config --respawn --exit-child --transpile-only --watch --ignore-watch node_modules src/server.ts",
     "build": "tsc",
-    "start": "node -r dotenv/config dist/server.js",
+    "start": "npm run dev",
+    "desconsiderar": "node -r dotenv/config dist/server.js",
     "db:migrations": "npx prisma migrate dev --preview-feature",
     "db:reset": "npx prisma migrate reset --preview-feature",
     "db:migrate": "npx prisma generate",

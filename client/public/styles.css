@@ -262,12 +262,25 @@ button:active {
 button[name="clearUsers"] {
   z-index: 2;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
 }
 
 #app #main-cards {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10%;
+  justify-content: center;
+  position: relative;
   text-align: center;
+}
+
+#app #mesa {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#app #main-cards .friends_cards {
 }
 
 #app #main-cards .card {
@@ -333,14 +346,16 @@ button[name="clearUsers"] {
   top: -20px;
 }
 
-h1[name="youSubtle"] {
+h1[name="youSubtle"], .accent-text {
   pointer-events: all;
   color: #fff065;
   margin: 0;
-  text-align: center;
+  text-align: left;
   text-shadow: 2px 3px 0px #000, 1px 1px 5px #000;
-  font-family: monospace;
+  font-family: cursive;
+  font-size: 2rem;
   margin: 5px 0;
+  font-weight: bold;
 }
 
 .myCards-arrows {
