@@ -36,7 +36,7 @@ class ServerListen {
                     mainForm[0].value = 'debugUser_'.concat(Math.floor(Math.random() * 501));
                     setTimeout(() => {
                         mainForm[1].click();
-                    }, 1000);
+                    }, 300);
                 }
             });
         });
