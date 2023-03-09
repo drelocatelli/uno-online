@@ -9,9 +9,10 @@ class Server {
         if(localStorage.getItem('uno-server') != null) {
             server = localStorage.getItem('uno-server');
         } else {
-            localStorage.setItem('uno-server', server.concat(`:${port}`));
+            server = server.concat(`:${port}`);
+            localStorage.setItem('uno-server', server);
         }
-        this.socket =  io(server.concat(`:${port}`), { transports: ['websocket', 'polling', 'flashsocket'] });
+        this.socket =  io(server, { transports: ['websocket', 'polling', 'flashsocket'] });
         (async() => {
             try {
                 let {ip: yourIp} = await this.getMyIp();
