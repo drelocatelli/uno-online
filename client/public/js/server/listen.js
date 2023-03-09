@@ -29,6 +29,7 @@ class ServerListen {
     listenOnConnectOrDisconnect() {
         this.socket.on('connect', () => {
             console.log('Connected to server');
+            NotificationDOM.setNotification('Servidor conectado');
         });
         this.socket.on('disconnect', () => {
             console.log('Disconnected from server');
