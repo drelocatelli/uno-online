@@ -35,11 +35,15 @@ Para instalar o Uno Online, siga estas etapas:
 
 Windows, Linux e macOS:
 
+Necessário NodeJS instalado.
+
+Rode o comando dentro das pastas 'server' e 'client':
+
 ```
 npm install
 ```
 
-Criar .env no Backend
+Criar .env na pasta server:
 
 ```
 API_PORT=3000
@@ -49,7 +53,7 @@ PASSWORD=minhasenha
 ## ☕ Usando Uno Online e Jogando com amigos!
 
 Para usar Uno Online, siga estas etapas:
-Abra a pasta 'server' e rode o comando:
+Abra a pasta 'server' e 'client' e rode o comando:
 
 ```
 npm run start
