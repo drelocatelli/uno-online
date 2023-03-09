@@ -29,13 +29,14 @@ class Effects {
                   cardsEl.scrollLeft += 30;
                 }
 
-                window.requestAnimationFrame(scroll);
+                // window.requestAnimationFrame(scroll);
             });
 
+            
             leftArrow.onclick = (e) => {
                 cardsEl.scrollLeft -= 100;
             }
-
+            
             rightArrow.onclick = (e) => {
                 cardsEl.scrollLeft += 100;
             }

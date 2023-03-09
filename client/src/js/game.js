@@ -215,10 +215,6 @@ class Game {
       const hiddenEl = document.createElement('div');
       hiddenEl.classList.add('hidden');
       hiddenEl.style.opacity = (!showing) ? 1 : 0;
-      content.onclick = (e) => {
-        const op = e.target.style.opacity;
-        e.target.style.opacity = (op == 0) ? 1 : 0;
-      };
       content.prepend(hiddenEl);
     }
     

@@ -295,7 +295,6 @@ button[name="clearUsers"] {
 }
 
 #app #my-cards .cards {
-  scroll-behavior: smooth;
   overflow-x: scroll;
   /* overflow: visible; */
   /* overflow-x: clip; */
@@ -305,6 +304,12 @@ button[name="clearUsers"] {
   flex-direction: row;
   width: auto;
   height: max-content;
+}
+
+#app #my-cards .cards .scrollable {
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  overflow-x: scroll;
 }
 
 #app #my-cards::-webkit-scrollbar { 
