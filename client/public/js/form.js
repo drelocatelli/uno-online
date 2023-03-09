@@ -15,12 +15,23 @@ class Forms {
         }
       });
     }
+    this.changeServer();
   }
   
   static main(form) {
     let formData = new FormData(form);
     const userName = formData.get('userName');
     new ServerEmit(server.socket).playerEnter(userName);
+  }
+
+  static changeServer() {
+    document.querySelector('button[name="changeServer"]').onclick = function() {
+      const serverIp = prompt("Digite o IP/URL do servidor");
+      if(serverIp.length > 0) {
+        server.changeSocket(serverIp);
+      }
+    }
+    
   }
 }
 Forms.define();
@@ -32,10 +43,6 @@ function reload() {
   }
 }
 
-function changeServer() {
-  const serverIp = prompt("Digite o IP/URL do servidor");
-  server.changeSocket(serverIp);
-}
 
 /**
  * NOTIFICATIONS ------------------------------------
