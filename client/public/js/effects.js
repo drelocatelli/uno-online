@@ -47,12 +47,9 @@ class Effects {
     }
     
     static myCardsSlideshow() {
-        console.log(cardsEl.clientWidth, cardsEl.scrollWidth)
         if(cardsEl.clientWidth < cardsEl.scrollWidth) {
-            console.log('scroll overflowed');
             this.myCardsArrow(true);
         } else {
-            console.log('scroll not overflowed');
             this.myCardsArrow(false);
         }
     }

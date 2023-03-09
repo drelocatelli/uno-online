@@ -30,6 +30,15 @@ class ServerListen {
         this.socket.on('connect', () => {
             console.log('Connected to server');
             NotificationDOM.setNotification('Servidor conectado');
+            WatchClientServer.socket().emit('started', true, (response) => {
+                const mainForm = document.querySelector('form[data-form="main"]');
+                if(JSON.parse(response.debugMode)) {
+                    mainForm[0].value = 'debugUser_'.concat(Math.floor(Math.random() * 501));
+                    setTimeout(() => {
+                        mainForm[1].click();
+                    }, 1000);
+                }
+            });
         });
         this.socket.on('disconnect', () => {
             console.log('Disconnected from server');

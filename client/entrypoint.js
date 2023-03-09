@@ -19,6 +19,18 @@ server.listen(process.env.PORT, '0.0.0.0', () => {
     console.log(`Running at http://localhost:${process.env.PORT}`);
 });
 
+const debugMode = process.env.DEBUGMODE;
+
+io.on('connection', (socket) => {
+    socket.emit('debugMode', debugMode);
+
+    socket.on('started', (e, cb) => {
+        console.log('Game server is ready');
+        cb({debugMode});
+    });
+    // socket.emit('started', true);
+});
+
 chokidar.watch('public').on('change', () => {
     io.sockets.emit('reload');
 });
