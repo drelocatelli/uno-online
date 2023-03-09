@@ -207,7 +207,6 @@ class Game {
     if (symbol == "❖" || symbol == "+4") {
       middleNumber.style.textShadow = "none";
     }
-
     card.setAttribute('title', `Carta N°${index + 1}`);
 
     // add hidden card

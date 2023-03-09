@@ -6,7 +6,7 @@ class ScriptInjector {
     }
  
     inject(name = null) {
-        let path = `src/js/${name}.js`
+        let path = `js/${name}.js`
         const script = document.createElement('script');
         script.src = path;
         let scriptInjectorEl = document.querySelector('script-injector');
