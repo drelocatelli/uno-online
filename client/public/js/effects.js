@@ -1,6 +1,25 @@
 const cardsEl = document.querySelector('#my-cards .cards');
 
 class Effects {
+    static newAudioInstance(audioName) {
+        const audio = document.createElement('audio');
+        audio.src = `../assets/sounds/${audioName}`;
+        return audio;
+    }
+    
+    static toggleMusic() {
+        let audio = this.newAudioInstance('bg-music.mp3');
+        const musicBtn = document.querySelector('button[name="toggleMusic"]');
+        audio.autoplay = true;
+        musicBtn.onclick = function(e) {
+            if(audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    }
+    
     static myCardsArrow(showing) {
         const arrowsEl = document.createElement('div');
         arrowsEl.classList.add('myCards-arrows');

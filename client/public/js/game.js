@@ -39,6 +39,7 @@ class Game {
     document.querySelector('#main').remove();
     document.querySelector('#game').style.display = 'block';
     const card = this.generateGlobalCard();
+    Effects.toggleMusic();
     new ServerEmit(server.socket).shareGlobalCard(card);
   }
 

@@ -25,7 +25,10 @@
       </div>
       
       <div id="game" style="display: none;">
-        <button type="button" onclick="reload()" style="position: fixed; top: 0; right: 0;">x</button>
+        <div style="position:absolute; top:0; right:0; z-index: 1;">
+          <button name="toggleMusic">🔊</button>
+          <button type="button" onclick="reload()">x</button>
+        </div>
         <div id="app">
           <div id="main-cards">
             <div id="mesa">
