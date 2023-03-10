@@ -20,7 +20,7 @@ export class UserController {
             console.log('Started new game!');
         }
         
-        const addedUser = this.users.add({id: socket.id, username: message});
+        const addedUser = this.users.add({id: socket.id, username: message} as any);
         socket.broadcast.emit('user:logged', addedUser);
         socket.emit('user:login', addedUser);
     }

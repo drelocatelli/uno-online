@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Cabin';
+  src: url('assets/fonts/Cabin-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('assets/fonts/Cabin-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
   font-family: sans-serif;
   background: url('assets/img/bg01.jpg') no-repeat;
@@ -12,7 +26,7 @@ body {
   display: inline-block;
   margin: 5px 20px;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Cabin", Courier, monospace;
   user-select: none;
   position: relative;
   background: #fff;
@@ -106,7 +120,8 @@ body {
   transform: translate(-50%, -50%);
   font-size: 700%;
   text-shadow: 5px 7px 1px #000;
-  font-family: fantasy;
+  font-family: "Cabin", courier, monospace;
+  font-weight: bold;
   color: #ccc;
 }
 
@@ -352,7 +367,7 @@ h1[name="youSubtle"], .accent-text {
   margin: 0;
   text-align: left;
   text-shadow: 2px 3px 0px #000, 1px 1px 5px #000;
-  font-family: cursive;
+  font-family: "Cabin", cursive;
   font-size: 2rem;
   margin: 5px 0;
   font-weight: bold;
