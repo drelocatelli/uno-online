@@ -63,8 +63,22 @@ class ServerListen {
         this.socket.on('card:global', (e) => {
             console.log('card:global', e);
             game.syncGlobalCard(e);
-            game.giveMeCards(7);
         });
+    }
+
+    listenSharedPlayerCard() {
+        // when game started, give 7 cards for player
+        game.giveMeCards(7);
+        this.socket.on('card:user-count', (cardsQuantity) => {
+            if(cardsQuantity != game.playerCards) {
+                game.giveMeCards(cardsQuantity);
+            }
+        });
+    }
+
+    listenOtherUsersCard() {
+        // this.socket.on('users:all', (response) => {
+        // });
     }
 
 }

@@ -44,7 +44,7 @@ class Game {
   }
 
   getGlobalCard() {
-    const globalCard = app.querySelector('.card[data-card-id="0"]');
+    const globalCard = app.querySelector('#main-cards .card');
     return globalCard;
   }
 
@@ -60,6 +60,9 @@ class Game {
       content.classList.remove('colorfulBg');
       middleSymbol.style.textShadow = '5px 7px 1px #000';
     }
+
+    console.log(this.getGlobalCard())
+    console.log(symbol)
 
     middleSymbol.innerHTML = symbol;
     topSymbol.innerHTML = symbol;

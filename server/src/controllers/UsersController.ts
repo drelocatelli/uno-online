@@ -1,4 +1,4 @@
-import { ConnectedSocket, MessageBody, OnDisconnect, OnMessage, SocketController } from "socket-controllers";
+import { ConnectedSocket, EmitOnSuccess, MessageBody, OnDisconnect, OnMessage, SocketController } from "socket-controllers";
 import type { Socket } from "socket.io";
 import { Service } from "typedi";
 import { CardRepository } from "../repository/card";
@@ -33,6 +33,12 @@ export class UserController {
     @OnDisconnect()
     disconnect(@ConnectedSocket() socket: Socket) {
         transmit(socket, 'user:logout', this.users.remove({id: socket.id}));
+    }
+
+    @OnMessage('users:all')
+    @EmitOnSuccess('users:all')
+    shareOtherUsersCardCount(@ConnectedSocket() socket: Socket) {
+        return UserRepository.findAll().filter(u => u.id != socket.id).map(({id, ...rest}) => rest);
     }
 
 }

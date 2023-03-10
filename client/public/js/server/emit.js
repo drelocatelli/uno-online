@@ -32,9 +32,7 @@ class ServerEmit {
     }
 
     shareCardsCount(quantity) {
-        this.socket.emit('card:user-count', quantity, (response) => {
-            console.log(response);
-        });
+        this.socket.emit('card:user-count', quantity);
     }
         
 }
