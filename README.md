@@ -29,6 +29,9 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você tem uma máquina `Windows / Linux / Mac`.
 - Você leu `README, CONTRIBUTING`.
 
+# Documentação do server-side
+[Ler documentação](https://free-borogovia-69a.notion.site/Uno-Online-server-docs-978b591e1aec4cb8816c0209e91c217d)
+
 ## 🚀 Instalando Uno Online
 
 Para instalar o Uno Online, siga estas etapas:
