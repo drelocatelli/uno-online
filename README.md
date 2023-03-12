@@ -16,77 +16,70 @@ alt="Capa do UNO">
 Tabela de conteúdos
 =================
 <!--ts-->
-   * [Sobre](#sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Ajustes e Melhorias](#ajustes-e-melhorias)
-   * [Pré Requisitos](#pré-requisitos)
-   * [Documentação Server Side](#documentação-server-side)
-   * [Instalando Uno Online](#instalando-uno-online)
-   * [Usando Uno Online](#usando-uno-online-e-jogando-com-amigos)
-   * [Contribuindo](#contribuindo-para-uno-online)
-   * [Colaboradores](#colaboradores)
-   * [Licença](#licença)
+* [Sobre](#sobre)
+* [Tabela de Conteudo](#tabela-de-conteudo)
+* [Ajustes e Melhorias](#ajustes-e-melhorias)
+* [Documentação Server Side](#documentação-server-side)
+* [Pré Requisitos](#pré-requisitos)
+* [Instalando Uno Online](#instalando-uno-online)
+* [Usando Uno Online](#usando-uno-online-e-jogando-com-amigos)
+* [Contribuindo](#contribuindo-para-uno-online)
+* [Colaboradores](#colaboradores)
+* [Licença](#licença)
 <!--te-->  
 
-## ⚙️ Ajustes e melhorias
+## 🔧 Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Tarefa 1
 
+## 📚 Documentação do server-side
+[Ler documentação](https://free-borogovia-69a.notion.site/Uno-Online-server-docs-978b591e1aec4cb8816c0209e91c217d)
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
+- [Docker](https://www.docker.com/) 
+- [Docker-compose](https://docs.docker.com/compose/install/)
 
-- Você instalou a versão mais recente de `NodeJS / NPM`
-- Você tem uma máquina `Windows / Linux / Mac`.
-- Você leu `README, CONTRIBUTING`.
-
-## 📰 Documentação do server-side
-[Ler documentação](https://free-borogovia-69a.notion.site/Uno-Online-server-docs-978b591e1aec4cb8816c0209e91c217d)
+Importante⚠️: Dentro das pastas `server` e `client`, copie o conteúdo do arquivo `.env.example` e crie um arquivo `.env` com o conteúdo copiado.
 
 ## 🚀 Instalando Uno Online
 
-Para instalar o Uno Online, siga estas etapas:
+1. Acesse a pasta do projeto.
+2. Execute o comando abaixo para subir a máquina:
 
-Windows, Linux e macOS:
-
-Necessário NodeJS instalado.
-
-Rode o comando dentro das pastas 'server' e 'client':
-
-```
-npm install
-```
-
-Criar .env na pasta server:
-
-```
-API_PORT=3000
-PASSWORD=minhasenha
-```
+```bash
+docker-compose up
+``` 
 
 ## ☕ Usando Uno Online e Jogando com amigos!
 
-Para usar Uno Online, siga estas etapas:
-Abra a pasta 'server' e 'client' e rode o comando:
+### 🎮 Jogando com amigos [método 1]
 
-```
-npm run start
-```
-
-Para convidar seus amigos para jogar, você precisará abrir a DMZ (conhecido também como abrir portas) do seu roteador.
-
-Após isso, acesse esse site e copie o endereço de IP Público: https://meuip.com.br/
-
-Copie o IP e adicione a porta nele, por exemplo:
+- Para convidar seus amigos para jogar, você precisará abrir a DMZ (conhecido também como abrir portas) do seu roteador.
+- Após isso, acesse esse site e copie o endereço de IP Público: https://meuip.com.br/
+- Copie o IP e adicione a porta nele, por exemplo:
 ```
 127.0.0.1:PORTA
 ```
+- Agora, basta enviar o link para seus amigos e começar a jogar!
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
+### 🎮 Jogando com amigos [método 2]
+
+- Esse projeto tem um recurso chamado **ngrok** que permite que você crie um link público para jogar com seus amigos.
+- Para isso, basta acessar o site https://ngrok.com/ e criar uma conta.
+- Após criar a conta, copie o token e preencha `AUTH_TOKEN=` dentro do arquivo `/client/.env`.
+- Agora, basta executar o comando abaixo para subir o projeto com as configurações do ngrok:
+
+```bash
+docker-compose --env-file=client/.env up
+```
+
+- O link que você vai enviar para seu amigos você pegará em: [localhost:4551](http://localhost:4551)
+- Obs: Envie para seu amigo o link em **http** e não em https.
 
 ## 📫 Contribuindo para Uno Online
 
