@@ -13,7 +13,22 @@ alt="Capa do UNO">
 
 > Uno Online para se divertir com os amigos.
 
-### Ajustes e melhorias
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#sobre)
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Ajustes e Melhorias](#ajustes-e-melhorias)
+   * [Pré Requisitos](#pré-requisitos)
+   * [Documentação Server Side](#documentação-server-side)
+   * [Instalando Uno Online](#instalando-uno-online)
+   * [Usando Uno Online](#usando-uno-online-e-jogando-com-amigos)
+   * [Contribuindo](#contribuindo-para-uno-online)
+   * [Colaboradores](#colaboradores)
+   * [Licença](#licença)
+<!--te-->  
+
+## ⚙️ Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
@@ -29,7 +44,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você tem uma máquina `Windows / Linux / Mac`.
 - Você leu `README, CONTRIBUTING`.
 
-# Documentação do server-side
+## 📰 Documentação do server-side
 [Ler documentação](https://free-borogovia-69a.notion.site/Uno-Online-server-docs-978b591e1aec4cb8816c0209e91c217d)
 
 ## 🚀 Instalando Uno Online
